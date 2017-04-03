@@ -1,0 +1,41 @@
+.big-style {
+	text-align: center;
+	background-image: url("../images/train.jpg");
+	background-size: 100%;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #259096;
+    color: white;
+}
+
+.btn-primary {
+    background-image: none;
+    background-color: #259096;
+    color: white;
+    border-color: #259096;
+    border-image: none;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #1b696d;
+  border-color: #1b696d;
+}
+
+.panel-primary {
+	border-color: #259096;
+    border-image: none;
+}
+
+th {
+	font-weight: bold;
+}
+
+.form-control:focus {
+  border-color: #2fbec6;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
