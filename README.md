@@ -1,18 +1,18 @@
 
 [View Project](https://janettwalker.github.io/Train_Scheduler/)
 
-# Project Title
+# Train Scheduler
 
-Short project description goes here
+This app allows the user to view information about different trains and their estimated arrival times.
 
 ## Screenshots
 Include a one or two screenshots of main UI/UX points of your app and how it solves a problem
 
 ## Technologies used
 You can give a brief listing of the technologies you've learned and applied here
-- node.js
-- Express
-- Handblebars
+- moment.js
+- firebase
+- jQuery
 - mongodb
 
 ## Getting Started
@@ -52,18 +52,31 @@ For Project presentation, you can include snippets of code you found buggy, inte
 You can also show where you've used technologies you've learned and applied here.
 
 ```
-function awesomeThing() {
-    //...
-    // try not to make it too long otherwise, point to filepaths:line numbers
-    //...
-}
+// on click event for button that adds train info
+$("#add-train").on("click", function(event){
+	event.preventDefault();
+
+	// users input from text boxes
+	train = $("#train-input").val().trim();
+	destination = $("#dest-input").val().trim();
+	firstTime = moment($("#time-input").val().trim(), "HH:mm").subtract(10, "years").format("X");
+	frequency = $("#freq-input").val().trim();
+
+	// creates an object for storing data
+	var newTrain = {
+		train: train,
+		destination: destination,
+		firstTime: firstTime,
+		frequency: frequency,
+	};
+	// uploads train data to the database
+	database.ref().push(newTrain);
 ```
 
-## Authors
+## Author
 
-* **John Doe** - *Initial work* - [John Doe](https://github.com)
+* **Janet Walker** - *Initial work* - [Janet Walker](https://github.com/janettwalker)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -71,6 +84,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Huge shout out to all of the open source documentation out there!
