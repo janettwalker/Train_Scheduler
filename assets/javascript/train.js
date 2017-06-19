@@ -55,11 +55,31 @@ $("#add-train").on("click", function(event){
   return false;
 
 });
+
+
 // on click event for firebase and for adding info to database and table
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-	console.log(childSnapshot.val());
+	console.log(Object.keys(childSnapshot.val()));
 	// storing snapshots into variables
+	var sv = childSnapshot.val();
+
+	var svArr = Object.keys(sv).map(function(arr){
+			var temp = sv[arr];
+			temp.key = arr;
+			return temp;
+	});
+
+	svArr.sort(function(a, b){
+		return a.timeStamp - b.timeStamp;
+	});
+
+	var key = sv.train;
+
+	console.log(sv);
+	console.log(sv.train);
+	console.log("svArr: ", svArr);
+
 	var train = childSnapshot.val().train;
 	var destination = childSnapshot.val().destination;
 	var firstTime = childSnapshot.val().firstTime;
@@ -69,8 +89,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   	console.log(destination);
   	console.log(firstTime);
  	console.log(frequency);
- 	console.log(differenceTimes);
- 	console.log(tRemainder);
+
 
  	var differenceTimes = moment().diff(moment.unix(firstTime), "minutes");
   	var tRemainder = moment().diff(moment.unix(firstTime), "minutes") % frequency;
@@ -78,6 +97,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 // To calculate the arrival time, add the minAway to the currrent time
  	var nextArrival = moment().add(minAway, "m").format("hh:mm A");
+
 
 
 
@@ -90,13 +110,50 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   	    $("#train-table > tbody").append(
     	"<tr><td>" + train + "</td><td>" + destination + "</td><td>" +
-  	frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
+  	frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td><td>" + "<button class='btn btn-primary delete' attr='key'>" + "<span class='glyphicon glyphicon-remove-sign' aria-hidden='true'>" + "</span>" + "</button></td></tr>");
 
-function myFunction() {
-    document.getElementById("myTable").deleteRow(0);
-}
+	$('.delete').on("click", function(){
+
+		console.log("here");
+		database.ref().child($(this).attr("key")).remove();
+		$(this).remove();
+
+	});
 
 });
+
+// 	var obj = $firebaseObject(ref);
+// 		obj.$remove().then(function(ref) {
+//   	// data has been deleted locally and in the database
+// 		}, function(error) {
+//   		console.log("Error:", error);
+// 		});
+
+
+// });
+
+
+// database.ref().on("value", function(childSnapshot){
+
+// 	var sv = childSnapshot.val();
+
+// 	var svArr = Object.keys(sv).map(function(arr){
+// 			var temp = sv[arr];
+// 			temp.key = arr;
+// 			return temp;
+// 	});
+
+// 	svArr.sort(function(a, b){
+// 		return a.timeStamp - b.timeStamp;
+// 	});
+
+// 	// var key = sv.favoriteWordEntry;
+
+// 	console.log(sv);
+// 	// console.log(sv.favoriteWordEntry);
+// 	console.log("svArr: ", svArr);
+
+// 	console.log(Object.keys(childSnapshot.val()));
 
 
 
