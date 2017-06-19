@@ -25,7 +25,7 @@ $("#add-train").on("click", function(event){
 	// users input from text boxes
 	train = $("#train-input").val().trim();
 	destination = $("#dest-input").val().trim();
-	firstTime = $("#time-input").val().trim();
+	firstTime = moment($("#time-input").val().trim(), "HH:mm").subtract(10, "years").format("X");
 	frequency = $("#freq-input").val().trim();
 
 	// creates an object for storing data
@@ -60,28 +60,44 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
 	console.log(childSnapshot.val());
 	// storing snapshots into variables
-	train = childSnapshot.val().train;
-	destination = childSnapshot.val().destination;
-	firstTime = childSnapshot.val().firstTime;
-	frequency = childSnapshot.val().frequency;
+	var train = childSnapshot.val().train;
+	var destination = childSnapshot.val().destination;
+	var firstTime = childSnapshot.val().firstTime;
+	var frequency = childSnapshot.val().frequency;
 
   	console.log(train);
   	console.log(destination);
   	console.log(firstTime);
  	console.log(frequency);
+ 	console.log(differenceTimes);
+ 	console.log(tRemainder);
 
- 	var trainTime = moment("#firstTime", "hmm").format('HH:mm');
+ 	var differenceTimes = moment().diff(moment.unix(firstTime), "minutes");
+  	var tRemainder = moment().diff(moment.unix(firstTime), "minutes") % frequency;
+  	var minAway = frequency - tRemainder;
 
- 	var nextArrival = moment(trainTime).endOf(frequency);
-	console.log(nextArrival);
+// To calculate the arrival time, add the minAway to the currrent time
+ 	var nextArrival = moment().add(minAway, "m").format("hh:mm A");
 
- 	var minAway = "";
 
-    $("#train-table > tbody").append(
+
+
+	console.log(minAway);
+  	console.log(nextArrival);
+  	console.log(moment().format("hh:mm A"));
+  	console.log(nextArrival);
+  	console.log(moment().format("X"));
+
+  	    $("#train-table > tbody").append(
     	"<tr><td>" + train + "</td><td>" + destination + "</td><td>" +
-  frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
+  	frequency + "</td><td>" + nextArrival + "</td><td>" + minAway + "</td></tr>");
+
+function myFunction() {
+    document.getElementById("myTable").deleteRow(0);
+}
 
 });
+
 
 
 
