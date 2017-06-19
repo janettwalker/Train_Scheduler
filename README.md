@@ -1,5 +1,5 @@
 
-https://janettwalker.github.io/Train_Scheduler/
+[View Project](https://janettwalker.github.io/Train_Scheduler/)
 
 # Project Title
 
