@@ -20,18 +20,17 @@ You can give a brief listing of the technologies you've learned and applied here
 - moment.js
 - firebase
 - jQuery
-- mongodb
+- Bootstrap
 
 ## Getting Started
-Direct
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Clone a copy of the repo and add a project in firebase. Add your firebase code. Watch your data post and update.
 
 ### Prerequisities
 
 What to install and how for local development and testing purposes
 
 ```
-- node.js: visit node.js and download...
+- firebase: [View Project](https://console.firebase.google.com) create an account and insert your API information
 - mongodb: npm install -g mongodb
 - mysqldb: brew install mysql
 - jasmine: npm i -g jasmine
