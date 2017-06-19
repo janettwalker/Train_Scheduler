@@ -6,9 +6,13 @@
 This app allows the user to view information about different trains and their estimated arrival times.
 
 ## Screenshots
-Include a one or two screenshots of main UI/UX points of your app and how it solves a problem
+Images of the train schedule and how users can add trains to the schedule.
 
 ![Schedule](http://i1044.photobucket.com/albums/b447/janetwalker271989/Screen%20Shot%202017-06-19%20at%201.19.53%20PM_zpsyb3rao9l.png "A view of the schedule.")
+
+![Add Train](http://i1044.photobucket.com/albums/b447/janetwalker271989/Screen%20Shot%202017-06-19%20at%201.20.03%20PM_zpscf6az0rt.png "Where users can add a train to the schedule.")
+
+
 
 
 ## Technologies used
