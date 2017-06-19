@@ -8,6 +8,9 @@ This app allows the user to view information about different trains and their es
 ## Screenshots
 Include a one or two screenshots of main UI/UX points of your app and how it solves a problem
 
+![Schedule](http://i1044.photobucket.com/albums/b447/janetwalker271989/Screen%20Shot%202017-06-19%20at%201.19.53%20PM_zpsyb3rao9l.png "A view of the schedule.")
+
+
 ## Technologies used
 You can give a brief listing of the technologies you've learned and applied here
 - moment.js
@@ -16,7 +19,7 @@ You can give a brief listing of the technologies you've learned and applied here
 - mongodb
 
 ## Getting Started
-
+Direct
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisities
