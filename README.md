@@ -1,6 +1,6 @@
 
-[View Project](https://janettwalker.github.io/Train_Scheduler/)
-
+**[View Project](https://janettwalker.github.io/Train_Scheduler/)**
+----
 # Train Scheduler
 
 This app allows the user to view information about different trains and their estimated arrival times.
@@ -30,35 +30,20 @@ Clone a copy of the repo and add a project in firebase. Add your firebase code. 
 What to install and how for local development and testing purposes
 
 ```
-- firebase: [View Project](https://console.firebase.google.com) create an account and insert your API information
-- mongodb: npm install -g mongodb
-- mysqldb: brew install mysql
-- jasmine: npm i -g jasmine
-```
+- firebase: [click here](https://console.firebase.google.com), create an account and insert your API information into train.js
 
-## Running the tests
-
-Explain how to run the automated tests for this system (if applicable)
-
-```
-jasmine
-
-jasmine spec/appSpec.js
 ```
 
 ## Built With
 
-* Atom - Sublime Text is pretty cool too I guess
-* Balsamiq - Wireframe of choice 
-* RoboMongo - Because .pretty() everything is tedious
+* Sublime Text
+* Bootstrap
+* jQuery
 
 ## Walk throughs of code
-For Project presentation, you can include snippets of code you found buggy, interesting, or are overall proud of here.  Try to limit the quantity and size to quick readable bits.
-
-You can also show where you've used technologies you've learned and applied here.
+The click event that adds train information to firebase
 
 ```
-// on click event for button that adds train info
 $("#add-train").on("click", function(event){
 	event.preventDefault();
 
